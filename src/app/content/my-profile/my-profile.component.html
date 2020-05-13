@@ -1,0 +1,87 @@
+<div class="card">
+    <div class="card-header bg-dark" style="color: white;">
+        General Information
+    </div>
+    <div class="card-body">
+        <form [formGroup]="profileForm" (submit)="onUpdate()" id="myProfileForm">
+            <div *ngIf="profileForm.touched">
+                <div *ngIf="!profileForm.get('firstName').valid" class="alert alert-danger">
+                    First Name is required!
+                </div>
+                <div *ngIf="!profileForm.get('lastName').valid" class="alert alert-danger">
+                    Last Name is required!
+                </div>
+                <div *ngIf="!profileForm.get('alias').valid" class="alert alert-danger">
+                    Alias is required!
+                </div>
+                <div *ngIf="!profileForm.get('jobTitle').valid" class="alert alert-danger">
+                    Job Title is required!
+                </div>
+                <div *ngIf="profileForm.get('email').hasError('required')" class="alert alert-danger">
+                    Email is required!
+                </div>
+                <div *ngIf="profileForm.get('email').hasError('email')" class="alert alert-danger">
+                    Input valid email!
+                </div>
+                <div *ngIf="!profileForm.get('password').valid" class="alert alert-danger">
+                    Password is required!
+                </div>
+                <div *ngIf="!profileForm.get('confirmPassword').valid" class="alert alert-danger">
+                    Confirm is required!
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label>First Name<span>*</span></label>
+                    <input formControlName="firstName" type="text" class="form-control" placeholder="First Name"
+                        id="myProfileFormFirstName">
+                </div>
+                <div class="form-group col-md-6">
+                    <label>Last Name<span>*</span></label>
+                    <input formControlName="lastName" type="text" class="form-control" placeholder="Last Name"
+                        id="myProfileFormLastName">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label>Alias<span>*</span></label>
+                    <input formControlName="alias" type="text" class="form-control" placeholder="Alias"
+                        id="myProfileFormAlias">
+                </div>
+                <div class="form-group col-md-6">
+                    <label>Job Title<span>*</span></label>
+                    <input formControlName="jobTitle" type="text" class="form-control" placeholder="Job Title"
+                        id="myProfileFormJobTitle">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label>Email<span>*</span></label>
+                    <input formControlName="email" type="email" class="form-control" placeholder="Email"
+                        id="myProfileFormEmail">
+                </div>
+                <div class="form-group col-md-6">
+                    <label>Mobile Number</label>
+                    <input formControlName="mobileNumber" type="text" class="form-control" placeholder="Mobile Number"
+                        id="myProfileFormMobileNumber">
+                </div>
+            </div>
+            <hr>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label>Password<span>*</span></label>
+                    <input formControlName="password" type="password" class="form-control" placeholder="Password"
+                        id="myProfileFormPassword">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label>Confirm Password</label>
+                    <input formControlName="confirmPassword" type="password" class="form-control"
+                        placeholder="Confirm Password" id="myProfileFormConfirmPassword">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-dark">Update</button>
+        </form>
+    </div>
+</div>

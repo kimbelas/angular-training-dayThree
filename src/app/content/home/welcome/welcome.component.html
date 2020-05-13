@@ -1,0 +1,6 @@
+<!-- <h1>Welcome {{ Username || UserName! }}</h1> -->
+<div>
+    <h1>Welcome, {{ userName | slice:0:3}}!</h1>
+    <hr>
+    <button class="btn btn-dark" (click)="logout()">Log out</button>
+</div>
